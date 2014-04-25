@@ -1,5 +1,7 @@
 package org.apache.cordova.risemedia;
 
+import java.io.InputStream;
+
 class ExpansionStorage {
 
   private static final String PROTOCOL = "expansion://";

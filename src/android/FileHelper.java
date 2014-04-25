@@ -16,7 +16,7 @@
        specific language governing permissions and limitations
        under the License.
  */
-package org.apache.cordova.rieemedia;
+package org.apache.cordova.risemedia;
 
 import android.net.Uri;
 
