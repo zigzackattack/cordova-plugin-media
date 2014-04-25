@@ -16,7 +16,7 @@
        specific language governing permissions and limitations
        under the License.
 */
-package org.apache.cordova.media;
+package org.apache.cordova.risemedia;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -95,6 +95,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         this.id = id;
         this.audioFile = file;
         this.recorder = new MediaRecorder();
+        this.storage  = new ExpansionStorage();
 
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             this.tempFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tmprecording.3gp";
@@ -518,7 +519,16 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
      * @throws IllegalArgumentException
      */
     private void loadAudioFile(String file) throws IllegalArgumentException, SecurityException, IllegalStateException, IOException {
-        if (this.isStreaming(file)) {
+        if(ExpansionStorage.isExpansionFile(file)) {
+          InputStream mediaStream = this.storage.load(file);
+
+          this.player.setDataSource(mediaStream);
+          this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+          this.setState(STATE.MEDIA_STARTING);
+          this.player.setOnPreparedListener(this);
+          this.player.prepareAsync();
+        }
+        else if (this.isStreaming(file)) {
             this.player.setDataSource(file);
             this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
             //if it's a streaming file, play mode is implied

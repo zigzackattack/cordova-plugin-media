@@ -20,14 +20,14 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
-id="org.apache.cordova.media"
+id="org.apache.cordova.risemedia"
     version="0.2.11-dev">
 
-    <name>Media</name>
-    <description>Cordova Media Plugin</description>
+    <name>RiseMedia</name>
+    <description>Rise Media Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,media</keywords>
-    <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-media.git</repo>
+    <repo>https://github.com/zigzackattack/cordova-plugin-media</repo>
     <issue>https://issues.apache.org/jira/browse/CB/component/12320647</issue>
     
     <dependency id="org.apache.cordova.file" version="1.0.1" />
