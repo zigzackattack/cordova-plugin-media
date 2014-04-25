@@ -58,6 +58,6 @@ id="org.apache.cordova.risemedia"
         <source-file src="src/android/AudioHandler.java" target-dir="src/org/apache/cordova/risemedia" />
         <source-file src="src/android/AudioPlayer.java" target-dir="src/org/apache/cordova/risemedia" />
         <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/cordova/risemedia" />
-        <source-file src="src/android/ExpansionStore.java" target-dir="src/org/apache/cordova/risemedia" />
+        <source-file src="src/android/ExpansionStorage.java" target-dir="src/org/apache/cordova/risemedia" />
      </platform>
 </plugin>
