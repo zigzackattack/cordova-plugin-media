@@ -1,4 +1,4 @@
-package org.apache.cordova.risemedia;
+package org.apache.cordova.media;
 
 import java.io.InputStream;
 import com.android.vending.expansion.zipfile.*;

@@ -20,11 +20,11 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
-id="org.apache.cordova.risemedia"
+id="org.apache.cordova.media"
     version="0.2.11-dev">
 
-    <name>RiseMedia</name>
-    <description>Rise Media Plugin</description>
+    <name>Media</name>
+    <description>Media Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,media</keywords>
     <repo>https://github.com/zigzackattack/cordova-plugin-media</repo>
@@ -44,7 +44,7 @@ id="org.apache.cordova.risemedia"
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Media" >
-                <param name="android-package" value="org.apache.cordova.risemedia.AudioHandler"/>
+                <param name="android-package" value="org.apache.cordova.media.AudioHandler"/>
             </feature>
         </config-file>
         
@@ -58,9 +58,9 @@ id="org.apache.cordova.risemedia"
         <source-file src="lib/com/android/vending/expansion/zipfile/APKExpansionSupport.java" target-dir="src/com/android/vending/expansion/zipfile" />
         <source-file src="lib/com/android/vending/expansion/zipfile/ZipResourceFile.java" target-dir="src/com/android/vending/expansion/zipfile" />
         
-        <source-file src="src/android/AudioHandler.java" target-dir="src/org/apache/cordova/risemedia" />
-        <source-file src="src/android/AudioPlayer.java" target-dir="src/org/apache/cordova/risemedia" />
-        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/cordova/risemedia" />
-        <source-file src="src/android/ExpansionStorage.java" target-dir="src/org/apache/cordova/risemedia" />
+        <source-file src="src/android/AudioHandler.java" target-dir="src/org/apache/cordova/media" />
+        <source-file src="src/android/AudioPlayer.java" target-dir="src/org/apache/cordova/media" />
+        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/cordova/media" />
+        <source-file src="src/android/ExpansionStorage.java" target-dir="src/org/apache/cordova/media" />
      </platform>
 </plugin>
