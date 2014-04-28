@@ -12,17 +12,17 @@ class ExpansionStorage {
   private ZipResourceFile store = null;
 
   public ExpansionStorage(Context ctx) {
-    this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 1, 0);
-
+    try {
+      this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 1, 0);
+    } catch(IOException e) {
+      System.out.println(e.getMessage());
+      e.printStackTrace();
+    }
   }
 
   public AssetFileDescriptor load(String file) {
     String filename = file.replace(PROTOCOL, "");
-    try { 
-      AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
-    } catch(IOException e) {
-      e.printStackTrace();
-    }
+    AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
 
     return fd;
   }
