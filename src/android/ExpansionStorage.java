@@ -17,7 +17,11 @@ class ExpansionStorage {
 
   public AssetFileDescriptor load(String file) {
     String filename = file.replace(PROTOCOL, "");
-    AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
+    try { 
+      AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
+    } catch(IOException e) {
+
+    }
 
     return fd;
   }
