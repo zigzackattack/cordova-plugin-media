@@ -5,6 +5,7 @@ import java.io.InputStream;
 class ExpansionStorage {
 
   private static final String PROTOCOL = "expansion://";
+  private ZipResourceFile store = null;
 
   public ExpansionStorage() {
     this.store = APKExpansionSupport.getAPKExpansionFile(getApplicationContext(), 1, 0);
@@ -16,7 +17,7 @@ class ExpansionStorage {
     return this.store.getInputStream(file);
   }
 
-  public Boolean isExpansionFile(String file) {
+  public static Boolean isExpansionFile(String file) {
     return file.startsWith(PROTOCOL);
   }
 

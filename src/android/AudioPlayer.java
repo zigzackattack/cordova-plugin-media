@@ -30,6 +30,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * This class implements the audio playback and recording capabilities used by Cordova.
@@ -78,6 +79,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
     private float duration = -1;            // Duration of audio
 
     private MediaRecorder recorder = null;  // Audio recording object
+    private ExpansionStorage storage = null // Holds external media
     private String tempFile = null;         // Temporary recording file name
 
     private MediaPlayer player = null;      // Audio player object
