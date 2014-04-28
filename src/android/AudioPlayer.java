@@ -27,6 +27,9 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.util.Log;
 
+/** For loading external file */
+import android.content.res.AssetFileDescriptor;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -522,9 +525,9 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
      */
     private void loadAudioFile(String file) throws IllegalArgumentException, SecurityException, IllegalStateException, IOException {
         if(ExpansionStorage.isExpansionFile(file)) {
-          InputStream mediaStream = this.storage.load(file);
+          AssetFileDescriptor fd = this.storage.load(file);
 
-          this.player.setDataSource(mediaStream);
+          this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
           this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
           this.setState(STATE.MEDIA_STARTING);
           this.player.setOnPreparedListener(this);
