@@ -9,12 +9,12 @@ class ExpansionStorage {
   private static final String PROTOCOL = "expansion://";
   private ZipResourceFile store = null;
 
-  public ExpansionStorage() {
-    this.store = APKExpansionSupport.getAPKExpansionFile(getApplicationContext(), 1, 0);
+  public ExpansionStorage(ctx) {
+    this.store = APKExpansionSupport.getAPKExpansionFile(ctx, 1, 0);
 
   }
 
-  public InputStream load(String file) {
+  public AssetFileDescriptor load(String file) {
     String file = file.replace(PROTOCOL, "");
     AssetFileDescriptor fd = this.store.getAssetFileDescriptor(file);
 

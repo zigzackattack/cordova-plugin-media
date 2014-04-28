@@ -29,6 +29,7 @@ import android.util.Log;
 
 /** For loading external file */
 import android.content.res.AssetFileDescriptor;
+import android.content.Context;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -99,14 +100,16 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         this.handler = handler;
         this.id = id;
         this.audioFile = file;
+        Context ctx = handler.cordova.getActivity().getApplicationContext();
         this.recorder = new MediaRecorder();
-        this.storage  = new ExpansionStorage();
+        this.storage  = new ExpansionStorage(ctx);
 
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             this.tempFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tmprecording.3gp";
         } else {
             this.tempFile = "/data/data/" + handler.cordova.getActivity().getPackageName() + "/cache/tmprecording.3gp";
         }
+
 
     }
 
