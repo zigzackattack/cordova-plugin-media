@@ -527,7 +527,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
      * @throws IllegalArgumentException
      */
     private void loadAudioFile(String file) throws IllegalArgumentException, SecurityException, IllegalStateException, IOException {
-        console.log(file);
+        Log.d(file);
         if(ExpansionStorage.isExpansionFile(file)) {
           AssetFileDescriptor fd = this.storage.load(file);
 
