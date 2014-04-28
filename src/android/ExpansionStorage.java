@@ -16,7 +16,7 @@ class ExpansionStorage {
   public ExpansionStorage(Context ctx) {
     try {
       this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 1, 0);
-      Log.d("RiseDebug", ctx);
+      Log.d("RiseDebug", ctx.getString());
     } catch(IOException e) {
       Log.d("RiseMedia", e.getMessage());
       e.printStackTrace();
