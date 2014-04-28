@@ -4,6 +4,7 @@ import java.io.InputStream;
 import com.android.vending.expansion.zipfile.*;
 import android.content.res.AssetFileDescriptor;
 import android.content.Context;
+import java.io.IOException;
 
 class ExpansionStorage {
 
@@ -20,7 +21,7 @@ class ExpansionStorage {
     try { 
       AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
     } catch(IOException e) {
-
+      System.out.println("Error: " e->getMessage());
     }
 
     return fd;
