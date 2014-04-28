@@ -11,7 +11,7 @@ class ExpansionStorage {
   private ZipResourceFile store = null;
 
   public ExpansionStorage(Context ctx) {
-    this.store = APKExpansionSupport.getAPKExpansionFile(ctx, 1, 0);
+    this.store = APKExpansionSupport.getAPKExpansionFiles(ctx, 1, 0);
 
   }
 
