@@ -21,7 +21,7 @@ class ExpansionStorage {
     try { 
       AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
     } catch(IOException e) {
-      System.out.println("Error: " e->getMessage());
+      System.out.println(e->getMessage());
     }
 
     return fd;
