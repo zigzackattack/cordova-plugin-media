@@ -3,13 +3,14 @@ package org.apache.cordova.risemedia;
 import java.io.InputStream;
 import com.android.vending.expansion.zipfile.*;
 import android.content.res.AssetFileDescriptor;
+import android.content.Context;
 
 class ExpansionStorage {
 
   private static final String PROTOCOL = "expansion://";
   private ZipResourceFile store = null;
 
-  public ExpansionStorage(ctx) {
+  public ExpansionStorage(Context ctx) {
     this.store = APKExpansionSupport.getAPKExpansionFile(ctx, 1, 0);
 
   }
