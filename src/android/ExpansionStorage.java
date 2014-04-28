@@ -1,7 +1,7 @@
 package org.apache.cordova.risemedia;
 
 import java.io.InputStream;
-import com.android.vending.expansion.zipfile;
+import com.android.vending.expansion.zipfile.*;
 
 class ExpansionStorage {
 
