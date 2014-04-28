@@ -6,7 +6,7 @@ import android.content.res.AssetFileDescriptor;
 import android.content.Context;
 import java.io.IOException;
 
-import java.util.Log;
+import android.util.Log;
 
 class ExpansionStorage {
 
