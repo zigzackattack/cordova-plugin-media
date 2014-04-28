@@ -6,6 +6,8 @@ import android.content.res.AssetFileDescriptor;
 import android.content.Context;
 import java.io.IOException;
 
+import java.util.Log;
+
 class ExpansionStorage {
 
   private static final String PROTOCOL = "expansion://";
@@ -15,7 +17,7 @@ class ExpansionStorage {
     try {
       this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 1, 0);
     } catch(IOException e) {
-      System.out.println(e.getMessage());
+      Log.d(e.getMessage());
       e.printStackTrace();
     }
   }
