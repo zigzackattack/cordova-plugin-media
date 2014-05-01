@@ -354,6 +354,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
      * @param player           The MediaPlayer that is ready for playback
      */
     public void onPrepared(MediaPlayer player) {
+    		Log.d(LOG_TAG, "Prepared");
         // Listen for playback completion
         this.player.setOnCompletionListener(this);
         // seek to any location received while not prepared
@@ -481,6 +482,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
                     try {
                         this.loadAudioFile(file);
                     } catch (Exception e) {
+                    		Log.d(LOG_TAG, e.getMessage());
                         this.handler.webView.sendJavascript("cordova.require('org.apache.cordova.media.Media').onStatus('" + this.id + "', "+MEDIA_ERROR+", { \"code\":"+MEDIA_ERR_ABORTED+"});");
                     }
                     return false;
@@ -506,6 +508,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
                         try {
                             this.loadAudioFile(file);
                         } catch (Exception e) {
+                        		Log.d(LOG_TAG, e.getMessage());
                             this.handler.webView.sendJavascript("cordova.require('org.apache.cordova.media.Media').onStatus('" + this.id + "', " + MEDIA_ERROR + ", { \"code\":" + MEDIA_ERR_ABORTED + "});");
                         }
                         //if we had to prepare= the file, we won't be in the correct state for playback
@@ -540,14 +543,6 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 
 					// Get duration
 					this.duration = getDurationInSeconds();
-          //fd.close();
-          /**
-           * this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-           * this.setMode(MODE.PLAY);
-           * this.setState(STATE.MEDIA_STARTING);
-           * this.player.setOnPreparedListener(this);
-           * this.player.prepare();
-           */
           Log.d(LOG_TAG, "should be playing.........");
         }
         else if (this.isStreaming(file)) {
