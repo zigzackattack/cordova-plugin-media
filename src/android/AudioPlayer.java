@@ -532,10 +532,13 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
     private void loadAudioFile(String file) throws IllegalArgumentException, SecurityException, IllegalStateException, IOException {
     		Log.d(LOG_TAG, "Loading file: " + file);
         if(ExpansionStorage.isExpansionFile(file)) {
-          AssetFileDescriptor fd = this.storage.load(file);
+        	try {
+						AssetFileDescriptor fd = this.storage.load(file);
+					} catch(Exception, e) {
+						Log.d(LOG_TAG, e.getMessage());
+					}
 
-          //Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
-          Log.d(LOG_TAG, "Length: " + String.valueOf(fd.getLength()));
+          Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
 
 					try {
 						this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
