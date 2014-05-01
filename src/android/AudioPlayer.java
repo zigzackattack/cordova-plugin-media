@@ -534,7 +534,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         if(ExpansionStorage.isExpansionFile(file)) {
         	try {
 						AssetFileDescriptor fd = this.storage.load(file);
-					} catch(Exception, e) {
+					} catch(Exception e) {
 						Log.d(LOG_TAG, e.getMessage());
 					}
 
