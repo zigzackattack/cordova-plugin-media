@@ -532,18 +532,16 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
           AssetFileDescriptor fd = this.storage.load(file);
 
           Log.d(LOG_TAG, "Loaded AssetFileDescriptor");
-          // Log.d(LOG_TAG, "Audio Length: "+ String.valueOf(fd.getLength()));
-          Log.d(LOG_TAG, "Another message");
 
           this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
           fd.close();
           /**
-          this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-          this.setMode(MODE.PLAY);
-          this.setState(STATE.MEDIA_STARTING);
-          this.player.setOnPreparedListener(this);
-          this.player.prepare();
-          */
+           * this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+           * this.setMode(MODE.PLAY);
+           * this.setState(STATE.MEDIA_STARTING);
+           * this.player.setOnPreparedListener(this);
+           * this.player.prepare();
+           */
           Log.d(LOG_TAG, "should be playing.........");
         }
         else if (this.isStreaming(file)) {

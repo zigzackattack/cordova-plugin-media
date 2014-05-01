@@ -16,7 +16,9 @@ class ExpansionStorage {
 
   public ExpansionStorage(Context ctx) {
     try {
+    	Log.d(LOG_TAG, "Loading store...");
       this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 2, 0);
+      Log.d(LOG_TAG, "Loaded store");
     } catch(IOException e) {
       Log.d(LOG_TAG, e.getMessage());
       e.printStackTrace();
