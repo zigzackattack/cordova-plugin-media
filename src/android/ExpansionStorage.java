@@ -11,21 +11,23 @@ import android.util.Log;
 class ExpansionStorage {
 
   private static final String PROTOCOL = "expansion://";
+  private static final String LOG_TAG  = "RiseMedia";
   private ZipResourceFile store = null;
 
   public ExpansionStorage(Context ctx) {
     try {
       this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 1, 0);
     } catch(IOException e) {
-      Log.d("RiseMedia", e.getMessage());
+      Log.d(LOG_TAG, e.getMessage());
       e.printStackTrace();
     }
   }
 
   public AssetFileDescriptor load(String file) {
     String filename = file.replace(PROTOCOL, "");
-    Log.d("RiseMedia", filename + "HELLO!");
+    Log.d(LOG_TAG, filename + "HELLO!");
     AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
+    Log.d(LOG_TAG, "Got file descriptor");
 
     return fd;
   }
