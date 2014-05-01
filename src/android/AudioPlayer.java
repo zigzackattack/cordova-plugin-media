@@ -538,6 +538,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 
           this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
 					this.setState(STATE.MEDIA_STARTING);
+					Log.d(LOG_TAG, "Current state: " + String.valueOf(this.state));
 					this.player.setOnPreparedListener(this);
 					this.player.prepare();
 
