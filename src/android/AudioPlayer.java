@@ -534,7 +534,13 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
           Log.d(LOG_TAG, "Loaded AssetFileDescriptor");
 
           this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
-          fd.close();
+					this.setState(STATE.MEDIA_STARTING);
+					this.player.setOnPreparedListener(this);
+					this.player.prepare();
+
+					// Get duration
+					this.duration = getDurationInSeconds();
+          //fd.close();
           /**
            * this.player.setAudioStreamType(AudioManager.STREAM_MUSIC);
            * this.setMode(MODE.PLAY);
@@ -570,12 +576,13 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
                     this.player.setDataSource(Environment.getExternalStorageDirectory().getPath() + "/" + file);
                 }
             }
-                this.setState(STATE.MEDIA_STARTING);
-                this.player.setOnPreparedListener(this);
-                this.player.prepare();
 
-                // Get duration
-                this.duration = getDurationInSeconds();
-            }
+						this.setState(STATE.MEDIA_STARTING);
+						this.player.setOnPreparedListener(this);
+						this.player.prepare();
+
+						// Get duration
+						this.duration = getDurationInSeconds();
+				}
     }
 }
