@@ -16,7 +16,7 @@ class ExpansionStorage {
 
   public ExpansionStorage(Context ctx) {
     try {
-      this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 1, 0);
+      this.store = APKExpansionSupport.getAPKExpansionZipFile(ctx, 2, 0);
     } catch(IOException e) {
       Log.d(LOG_TAG, e.getMessage());
       e.printStackTrace();
@@ -25,8 +25,8 @@ class ExpansionStorage {
 
   public AssetFileDescriptor load(String file) {
     String filename = file.replace(PROTOCOL, "");
-    Log.d(LOG_TAG, filename + "HELLO!");
-    AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
+    Log.d(LOG_TAG, filename);
+		AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
     Log.d(LOG_TAG, "Got file descriptor");
 
     return fd;
