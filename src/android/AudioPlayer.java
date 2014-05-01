@@ -534,16 +534,17 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         if(ExpansionStorage.isExpansionFile(file)) {
         	try {
 						AssetFileDescriptor fd = this.storage.load(file);
-					} catch(Exception e) {
-						Log.d(LOG_TAG, e.getMessage());
-					}
 
-          Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
+						Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
 
-					try {
-						this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+						try {
+							this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+						} catch(Exception e) {
+							Log.d(LOG_TAG, "An erorr with setDataSource");
+							Log.d(LOG_TAG, e.getMessage());
+						}
+
 					} catch(Exception e) {
-						Log.d(LOG_TAG, "An erorr with setDataSource");
 						Log.d(LOG_TAG, e.getMessage());
 					}
 
