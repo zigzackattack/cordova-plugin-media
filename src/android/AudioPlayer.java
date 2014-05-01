@@ -534,7 +534,8 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         if(ExpansionStorage.isExpansionFile(file)) {
           AssetFileDescriptor fd = this.storage.load(file);
 
-          Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
+          //Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
+          Log.d(LOG_TAG, "Length: " + String.valueOf(fd.getLength()));
 
 					try {
 						this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
