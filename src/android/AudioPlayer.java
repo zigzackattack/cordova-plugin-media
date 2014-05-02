@@ -538,7 +538,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 						Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
 
 						try {
-							Log.d(LOG_TAG, String.valueOf(fd.getLength));
+							Log.d(LOG_TAG, String.valueOf(fd.getLength()));
 						} catch(Exception e) {
 							e.getMessage();
 						}
