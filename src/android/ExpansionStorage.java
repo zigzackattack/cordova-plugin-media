@@ -30,6 +30,10 @@ class ExpansionStorage {
   public AssetFileDescriptor load(String file) {
     String filename = file.replace(PROTOCOL, "");
     Log.d(LOG_TAG, filename);
+    FileInputStream fis = this.store.getInputStream(filename); 
+    if(fis != null) {
+    	Log.d(LOG_TAG, "INPUT STREAM NOT NULL!");
+    }
 		AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
     Log.d(LOG_TAG, "Got file descriptor");
 
