@@ -538,6 +538,12 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 						Log.d(LOG_TAG, "Loaded boo! AssetFileDescriptor");
 
 						try {
+							Log.d(LOG_TAG, String.valueOf(fd.getLength));
+						} catch(Exception e) {
+							e.getMessage();
+						}
+
+						try {
 							this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
 						} catch(Exception e) {
 							Log.d(LOG_TAG, "An erorr with setDataSource");
@@ -545,6 +551,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 						}
 
 					} catch(Exception e) {
+						Log.d(LOG_TAG, "An error with loading AssetFileDescriptor");
 						Log.d(LOG_TAG, e.getMessage());
 					}
 
