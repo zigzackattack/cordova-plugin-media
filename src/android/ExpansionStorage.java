@@ -1,6 +1,6 @@
 package org.apache.cordova.media;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 import com.android.vending.expansion.zipfile.*;
 import android.content.res.AssetFileDescriptor;
 import android.content.Context;
@@ -30,7 +30,7 @@ class ExpansionStorage {
   public AssetFileDescriptor load(String file) {
     String filename = file.replace(PROTOCOL, "");
     Log.d(LOG_TAG, filename);
-    FileInputStream fis = this.store.getInputStream(filename); 
+    InputStream fis = this.store.getInputStream(filename); 
     if(fis != null) {
     	Log.d(LOG_TAG, "INPUT STREAM NOT NULL!");
     }
