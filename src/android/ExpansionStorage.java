@@ -23,6 +23,8 @@ class ExpansionStorage {
       Log.d(LOG_TAG, e.getMessage());
       e.printStackTrace();
     }
+
+    this.debug();
   }
 
   public AssetFileDescriptor load(String file) {
@@ -32,6 +34,13 @@ class ExpansionStorage {
     Log.d(LOG_TAG, "Got file descriptor");
 
     return fd;
+  }
+
+  public void debug() {
+		ZipEntryRO[] zro = this.store.getAllEntries();
+		for(ZipEntryRo entry : zro) {
+			Log.d(LOG_TAG, entry.getZipFileName());
+		}
   }
 
   public static Boolean isExpansionFile(String file) {
