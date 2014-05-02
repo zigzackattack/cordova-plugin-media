@@ -36,7 +36,7 @@ class ExpansionStorage {
 				Log.d(LOG_TAG, "INPUT STREAM NOT NULL!");
 			}
 		} catch(IOException e) {
-			Log.d(e.getMessage());
+			Log.d(LOG_TAG, e.getMessage());
 		}
 		AssetFileDescriptor fd = this.store.getAssetFileDescriptor(filename);
     Log.d(LOG_TAG, "Got file descriptor");
