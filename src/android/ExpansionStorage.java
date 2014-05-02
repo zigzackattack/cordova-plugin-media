@@ -37,8 +37,8 @@ class ExpansionStorage {
   }
 
   public void debug() {
-		ZipEntryRO[] zro = this.store.getAllEntries();
-		for(ZipEntryRo entry : zro) {
+		ZipResourceFile.ZipEntryRO[] zro = this.store.getAllEntries();
+		for(ZipResourceFile.ZipEntryRO entry : zro) {
 			Log.d(LOG_TAG, entry.getZipFileName());
 		}
   }
