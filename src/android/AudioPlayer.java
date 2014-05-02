@@ -542,32 +542,21 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 						}
 
 						try {
-							Log.d(LOG_TAG, String.valueOf(fd.getLength()));
-						} catch(Exception e) {
-							Log.d(LOG_TAG, "An error with fd.getLength()");
-							Log.d(LOG_TAG, e.getMessage());
-						}
-
-						try {
 							this.player.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
 						} catch(Exception e) {
 							Log.d(LOG_TAG, "An erorr with setDataSource");
-							Log.d(LOG_TAG, e.getMessage());
 						}
 
 					} catch(Exception e) {
 						Log.d(LOG_TAG, "An error with loading AssetFileDescriptor");
-						Log.d(LOG_TAG, e.getMessage());
 					}
 
 					this.setState(STATE.MEDIA_STARTING);
-					Log.d(LOG_TAG, "Current state: " + String.valueOf(this.state));
-					//this.player.setOnPreparedListener(this);
+					this.player.setOnPreparedListener(this);
 					this.player.prepare();
 
 					// Get duration
 					this.duration = getDurationInSeconds();
-          Log.d(LOG_TAG, "should be playing.........");
         }
         else if (this.isStreaming(file)) {
             this.player.setDataSource(file);
