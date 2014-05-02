@@ -1,6 +1,6 @@
 package org.apache.cordova.media;
 
-import java.io.InputStream;
+import java.io.FileInputStream;
 import com.android.vending.expansion.zipfile.*;
 import android.content.res.AssetFileDescriptor;
 import android.content.Context;
