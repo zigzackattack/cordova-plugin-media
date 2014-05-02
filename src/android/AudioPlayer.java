@@ -544,7 +544,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
 						try {
 							Log.d(LOG_TAG, String.valueOf(fd.getLength()));
 						} catch(Exception e) {
-							Log.d("An error with fd.getLength()");
+							Log.d(LOG_TAG, "An error with fd.getLength()");
 							Log.d(LOG_TAG, e.getMessage());
 						}
 
